@@ -1,0 +1,26 @@
+{
+  "name": "simpletyper",
+  "version": "1.0.0",
+  "description": "A simple, minimal (3kb) typewriter effect plugin.",
+  "main": "simpleTyper.js",
+  "directories": {
+    "example": "example",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Belgiumese/SimpleTyper.js.git"
+  },
+  "keywords": [
+    "typer",
+    "typewriter",
+    "effect",
+    "plugin"
+  ],
+  "author": "Belgiumese",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Belgiumese/SimpleTyper.js/issues"
+  },
+  "homepage": "https://github.com/Belgiumese/SimpleTyper.js#readme"
+}

@@ -32,7 +32,7 @@ simpleTyper.init().start($('#example')[0]);
 
 ## Settings
 These can be passed in as a object to `simpleTyper.settings()`, or applied directly to an element by adding
-`data-typer-{your-property}="{your-value}"`.
+`data-typer-{your-property}="{your-value}"` to the HTML.
 
 ### speed
 Type: `Number` (ms), Default: `1000`

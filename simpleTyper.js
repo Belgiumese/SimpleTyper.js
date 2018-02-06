@@ -10,7 +10,7 @@
     module.exports = factory(require('jquery'));
   } else if (jQuery) {
     //No module loaders
-    window.typer = factory(jQuery);
+    window.simpleTyper = factory(jQuery);
   } else {
     console.log('Could not detect jQuery. Exiting.');
   }
@@ -26,7 +26,7 @@
 
     api = {
       init: function init() {
-        $('.typer').each(function(i, element) {
+        $('.simpleTyper').each(function(i, element) {
           var typerText = TyperText($(element));
           typerText.id = typerTexts.length;
           typerText.elem.attr('data-typer-id', typerText.id);
@@ -80,13 +80,13 @@
     startCursor: function startCursor() {
       var obj = this;
       this.cursorTimer = setInterval(function() {
-        obj.elem.toggleClass('typeCursor');
+        obj.elem.toggleClass('simpleTyperCursor');
       }, this.settings.cursorSpeed);
     },
 
     stopCursor: function stopCursor() {
       clearInterval(this.cursorTimer);
-      this.elem.removeClass('typeCursor');
+      this.elem.removeClass('simpleTyperCursor');
     },
 
     stopType: function stopType() {

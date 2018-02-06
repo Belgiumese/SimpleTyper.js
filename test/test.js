@@ -11,7 +11,7 @@ QUnit.test('Finds elements and adds unique ID', function(assert) {
     fixture.append('<p class="typer"></p>');
   }
   typer.init();
-  let instances = $('.typer'),
+  let instances = $('.simpleTyper'),
     ids = [];
   assert.deepEqual(instances.length, iterations, `There should be ${iterations} instances of typer`);
   for (let i = 0; i < iterations; i++) {
@@ -34,7 +34,7 @@ QUnit.test('Text is correctly typed', (assert) => {
   });
   let done = assert.async(),
     done2 = assert.async(),
-    typeText = $('.typer');
+    typeText = $('.simpleTyper');
 
   typer.init();
   assert.deepEqual(typeText.text(), '', 'Text should be empty at the start');
@@ -62,7 +62,7 @@ QUnit.test('Setting delay works', (assert) => {
   typer.init().startAll();
 
   setTimeout(() => {
-    assert.deepEqual($('.typer').text(), toType, 'should type with delay of 0 when set.');
+    assert.deepEqual($('.simpleTyper').text(), toType, 'should type with delay of 0 when set.');
     done();
   }, 200);
 });
@@ -79,7 +79,7 @@ QUnit.test('Setting speed works', (assert) => {
   typer.init().startAll();
 
   setTimeout(() => {
-    assert.ok($('.typer').text().length < toType.length, 'Should type based on speed');
+    assert.ok($('.simpleTyper').text().length < toType.length, 'Should type based on speed');
     done();
   }, 3000);
 });
@@ -99,11 +99,11 @@ QUnit.test('Cursor class is added and removed', (assert) => {
   typer.init().startAll();
 
   setTimeout(() => {
-    assert.ok($('.typer').hasClass('typeCursor'), 'Should have cursor class after 500ms');
+    assert.ok($('.simpleTyper').hasClass('simpleTyperCursor'), 'Should have cursor class after 500ms');
     done();
   }, 650);
   setTimeout(() => {
-    assert.ok(!$('.typer').hasClass('typeCursor'), 'Should not have cursor class after 1000ms');
+    assert.ok(!$('.simpleTyper').hasClass('simpleTyperCursor'), 'Should not have cursor class after 1000ms');
     done2();
   }, 1150);
 });
@@ -122,7 +122,7 @@ QUnit.test('Cursor class is removed after delay', (assert) => {
   typer.init().startAll();
 
   setTimeout(() => {
-    assert.ok(!$('.typer').hasClass('typeCursor'), 'Should not have cursor class after typing ends');
+    assert.ok(!$('.simpleTyper').hasClass('simpleTyperCursor'), 'Should not have cursor class after typing ends');
     done();
   }, 1000);
 });
@@ -139,7 +139,7 @@ QUnit.test('Setting speed works through data-typer-speed', (assert) => {
   typer.init().startAll();
 
   setTimeout(() => {
-    assert.ok($('.typer').text().length < toType.length, 'Should type based on speed');
+    assert.ok($('.simpleTyper').text().length < toType.length, 'Should type based on speed');
     done();
   }, 300);
 });
@@ -155,7 +155,7 @@ QUnit.test('Setting high delay works', (assert) => {
   typer.init().startAll();
 
   setTimeout(() => {
-    assert.deepEqual($('.typer').text(), '', 'should type with delay when set.');
+    assert.deepEqual($('.simpleTyper').text(), '', 'should type with delay when set.');
     done();
   }, 200);
 });
@@ -169,15 +169,15 @@ QUnit.test('start and stop functions work', (assert) => {
     speed: 100
   });
   let done = assert.async(),
-    elem = $('.typer')[0];
+    elem = $('.simpleTyper')[0];
   typer.init().start(elem);
 
   setTimeout(() => {
-    assert.ok($('.typer').text().length > 0, 'Should start with .start()');
+    assert.ok($('.simpleTyper').text().length > 0, 'Should start with .start()');
     typer.stop(elem);
-    let length = $('.typer').text().length;
+    let length = $('.simpleTyper').text().length;
     setTimeout(() => {
-      assert.deepEqual($('.typer').text().length, length, 'Should stop typing with .stop()');
+      assert.deepEqual($('.simpleTyper').text().length, length, 'Should stop typing with .stop()');
       done();
     }, 200);
   }, 200);

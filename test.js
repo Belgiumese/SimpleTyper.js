@@ -51,39 +51,6 @@ QUnit.test('Text is correctly typed', (assert) => {
   }, speed * toType.length);
 });
 
-QUnit.test('Setting delay works', (assert) => {
-  let fixture = $('#qunit-fixture'),
-    toType = 'a';
-  fixture.append(`<p class="typer" data-typer-text="${toType}"></p>`);
-  typer.settings({
-    delay: 0
-  });
-  let done = assert.async();
-  typer.init().startAll();
-
-  setTimeout(() => {
-    assert.deepEqual($('.typer').text(), toType, 'should type with delay of 0 when set.');
-    done();
-  }, 200);
-});
-
-QUnit.test('Setting speed works', (assert) => {
-  let fixture = $('#qunit-fixture'),
-    toType = 'abcdef';
-  fixture.append(`<p class="typer" data-typer-text="${toType}"></p>`);
-  typer.settings({
-    delay: 0,
-    speed: 1000
-  });
-  let done = assert.async();
-  typer.init().startAll();
-
-  setTimeout(() => {
-    assert.ok($('.typer').text().length < toType.length, 'Should type based on speed');
-    done();
-  }, 3000);
-});
-
 QUnit.test('Cursor class is added and removed', (assert) => {
   let fixture = $('#qunit-fixture');
   fixture.append('<p class="typer" data-typer-text="a"></p>');
@@ -125,60 +92,4 @@ QUnit.test('Cursor class is removed after delay', (assert) => {
     assert.ok(!$('.typer').hasClass('typeCursor'), 'Should not have cursor class after typing ends');
     done();
   }, 1000);
-});
-
-QUnit.test('Setting speed works through data-typer-speed', (assert) => {
-  let fixture = $('#qunit-fixture'),
-    toType = 'aaa',
-    speed = 5000;
-  fixture.append(`<p class="typer" data-typer-text="${toType}" data-typer-speed="${speed}"></p>`);
-  typer.settings({
-    delay: 0
-  });
-  let done = assert.async();
-  typer.init().startAll();
-
-  setTimeout(() => {
-    assert.ok($('.typer').text().length < toType.length, 'Should type based on speed');
-    done();
-  }, 300);
-});
-
-QUnit.test('Setting high delay works', (assert) => {
-  let fixture = $('#qunit-fixture'),
-    toType = 'a';
-  fixture.append(`<p class="typer" data-typer-text="${toType}"></p>`);
-  typer.settings({
-    delay: 5000
-  });
-  let done = assert.async();
-  typer.init().startAll();
-
-  setTimeout(() => {
-    assert.deepEqual($('.typer').text(), '', 'should type with delay when set.');
-    done();
-  }, 200);
-});
-
-QUnit.test('start and stop functions work', (assert) => {
-  let fixture = $('#qunit-fixture'),
-    toType = 'abcdefghij';
-  fixture.append(`<p class="typer" data-typer-text="${toType}"></p>`);
-  typer.settings({
-    delay: 0,
-    speed: 100
-  });
-  let done = assert.async(),
-    elem = $('.typer')[0];
-  typer.init().start(elem);
-
-  setTimeout(() => {
-    assert.ok($('.typer').text().length > 0, 'Should start with .start()');
-    typer.stop(elem);
-    let length = $('.typer').text().length;
-    setTimeout(() => {
-      assert.deepEqual($('.typer').text().length, length, 'Should stop typing with .stop()');
-      done();
-    }, 200);
-  }, 200);
 });

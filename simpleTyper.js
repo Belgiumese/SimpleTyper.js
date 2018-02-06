@@ -16,11 +16,11 @@
   }
 })(function($) {
   //Always return api to allow method chaining.
-  var settings = {
+  var options = {
       speed: 100,
       cursorSpeed: 500,
-      cursorStopDelay: 1200,
-      delay: 500,
+      cursorStopDelay: 1000,
+      delay: 0,
       random: 0.1
     },
 
@@ -40,8 +40,8 @@
         }
         return api;
       },
-      settings: function settings(options) {
-        $.extend(settings, options);
+      settings: function setting(optionsIn) {
+        $.extend(options, optionsIn);
         return api;
       },
       start: function start(elem) {
@@ -69,11 +69,8 @@
     type: function type() {
       this.chars++;
       this.elem.text(this.text.slice(0, this.chars + 1));
-      if (this.chars !== this.text.length) {
+      if (this.chars <= this.text.length) {
         var typeTime = this.settings.speed + (Math.random() - 0.5) * this.settings.random;
-        if (this.text.charAt(this.chars) === ',') {
-          typeTime += this.settings.speed * 3;
-        }
         this.textTimer = setTimeout(keepScope(this, this.type), typeTime);
       } else {
         setTimeout(keepScope(this, this.stopCursor), this.settings.cursorStopDelay);
@@ -106,12 +103,14 @@
 
   function TyperText(elem) {
     var instance = Object.create(elemProto);
-    instance.settings = settings;
+    instance.settings = options;
     instance.elem = elem;
     instance.text = instance.elem.attr('data-typer-text') || '';
     for (var property in instance.settings) {
       var newProperty = instance.elem.attr('data-typer-' + property);
-      if (newProperty) instance.settings[property] = newProperty;
+      if (newProperty) {
+        instance.settings[property] = parseInt(newProperty, 10);
+      }
     }
     return instance;
   }

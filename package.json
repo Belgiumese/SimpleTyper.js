@@ -1,7 +1,7 @@
 {
   "name": "simple-typer-effect",
-  "version": "1.0.0",
-  "description": "A simple, minimal (3kb) typewriter effect plugin.",
+  "version": "1.0.1",
+  "description": "A simple, minimal (<2KB) typewriter effect plugin.",
   "main": "simpleTyper.js",
   "directories": {
     "example": "example",

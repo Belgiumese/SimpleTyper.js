@@ -1,5 +1,5 @@
 {
-  "name": "simpletyper",
+  "name": "simple-typer-effect",
   "version": "1.0.0",
   "description": "A simple, minimal (3kb) typewriter effect plugin.",
   "main": "simpleTyper.js",

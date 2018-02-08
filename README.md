@@ -5,7 +5,7 @@ the page.
 **Requirements:** jQuery 1.4+
 
 ## Features
-* Lightweight (3KB) and efficient
+* Lightweight (<2KB) and efficient
 * Realistic typing effect with randomisation options
 * Blinking cursor effect, customisable through CSS with `.simpleTyperCursor`
 * Optional advanced customisation options
@@ -56,9 +56,18 @@ How fast the cursor blinks. Note: cursor must be implemented in CSS using `.simp
 
 ### cursorStopDelay
 Type: `Number` (ms), Default: `1000`
+
 How long the cursor continues to blink for after the typing animation has finished.
 
 ## Examples
-### Basic example:
-[I'm an inline-style link with title](https://www.google.com "Google's Homepage")
+### Basic examples
+
+The most basic usage, with default settings:
+[Basic Usage (CodePen)](https://codepen.io/Belgiumese/pen/eVdVvo "CodePen")
+
+Changing the default settings:
+[Settings Change (CodePen)](https://codepen.io/Belgiumese/pen/WMReOX "CodePen")
+
+### Advanced examples
+
 

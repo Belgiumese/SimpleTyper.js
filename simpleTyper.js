@@ -117,9 +117,9 @@
     instance.elem = elem;
     instance.text = instance.elem.attr('data-typer-text') || '';
     for (var property in instance.settings) {
-      var newProperty = instance.elem.attr('data-typer-' + property);
+      var newProperty = parseFloat(instance.elem.attr('data-typer-' + property));
       if (newProperty) {
-        instance.settings[property] = parseInt(newProperty, 10);
+        instance.settings[property] = newProperty;
       }
     }
     return instance;

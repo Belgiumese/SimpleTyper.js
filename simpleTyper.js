@@ -79,7 +79,7 @@
       this.chars++;
       this.elem.text(this.text.slice(0, this.chars + 1));
       if (this.chars <= this.text.length) {
-        var typeTime = this.settings.speed + (Math.random() - 0.5) * this.settings.random;
+        var typeTime = this.settings.speed * (this.settings.random * (Math.random() - 0.5) + 1);
         this.textTimer = setTimeout(keepScope(this, this.type), typeTime);
       } else {
         setTimeout(keepScope(this, this.stopCursor), this.settings.cursorStopDelay);
